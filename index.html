@@ -754,19 +754,19 @@
     </h1>
 
     <p class="subheadline">
-      Most teams start with demos. We start with failure modes and build agents where the worst
-      <strong>cannot happen by design</strong>, even under pressure.
+      Everybody sells the upside. We start from the downside and build agents where the worst
+      <strong>cannot happen by design.</strong>
     </p>
 
     <div class="cta-group">
-      <a href="mailto:hello@granular.so?subject=Granular%20-%20Book%20a%20call" class="btn btn-primary">Book a call</a>
+      <a href="#pricing" class="btn btn-primary">Book a call</a>
     </div>
   </div>
 </header>
 
 <section class="section incidents" aria-labelledby="incidents-title">
   <div class="container">
-    <p class="eyebrow" id="incidents-title">Recent incidents</p>
+    <p class="eyebrow" id="incidents-title">Recent incidents - primary sources only</p>
 
     <div class="incidents-layout">
       <ul class="incident-list" id="incidentsList">
@@ -788,14 +788,14 @@
           <div class="incident-row-head">
             <div>
               <div class="incident-meta">
-                <span class="incident-date">February 2026</span>
-                <span class="incident-tag">Operational failure</span>
+                <span class="incident-date">November 2025</span>
+                <span class="incident-tag">Unauthorized access</span>
               </div>
-              <h3 class="incident-row-title">A Meta AI security researcher said an OpenClaw agent ran amok on her inbox.</h3>
+              <h3 class="incident-row-title">Autonomous agent accessed private customer accounts. $260,000+ in documented damages.</h3>
             </div>
-            <a class="incident-row-source" href="https://techcrunch.com/2026/02/23/a-meta-ai-security-researcher-said-an-openclaw-agent-ran-amok-on-her-inbox/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Read source</a>
+            <a class="incident-row-source" href="https://ismg-cdn.nyc3.cdn.digitaloceanspaces.com/asset_files/external/cand-259514-complaint-nov42025.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Read source</a>
           </div>
-          <p class="incident-row-meta">TechCrunch, February 23, 2026</p>
+          <p class="incident-row-meta">Amazon v. Perplexity, U.S. Federal Court, Case 3:25-cv-09514, November 2025</p>
         </li>
 
         <li class="incident-row">
@@ -810,20 +810,6 @@
             <a class="incident-row-source" href="https://arxiv.org/abs/2602.20021" target="_blank" rel="noopener noreferrer">Read source</a>
           </div>
           <p class="incident-row-meta">Agents of Chaos, MIT, Harvard, Northeastern, CMU, arXiv:2602.20021</p>
-        </li>
-
-        <li class="incident-row">
-          <div class="incident-row-head">
-            <div>
-              <div class="incident-meta">
-                <span class="incident-date">November 2025</span>
-                <span class="incident-tag">Unauthorized access</span>
-              </div>
-              <h3 class="incident-row-title">Autonomous agent accessed private customer accounts. $260,000+ in documented damages.</h3>
-            </div>
-            <a class="incident-row-source" href="https://ismg-cdn.nyc3.cdn.digitaloceanspaces.com/asset_files/external/cand-259514-complaint-nov42025.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Read source</a>
-          </div>
-          <p class="incident-row-meta">Amazon v. Perplexity, U.S. Federal Court, Case 3:25-cv-09514, November 2025</p>
         </li>
       </ul>
     </div>
@@ -841,7 +827,7 @@
 
     <div class="comparison">
       <article class="comparison-col comparison-col--bad">
-        <p class="comparison-approach">Approach 1 - Prompt rules (fragile)</p>
+        <p class="comparison-approach">Approach 1 - Prompt rules</p>
         <p class="comparison-label">Prompt-based rules are written in natural language, so agents interpret them, and interpretation stays negotiable.</p>
         <div class="comparison-exchange">
           <span class="comparison-flow">Same user request, different system behavior</span>
@@ -854,11 +840,11 @@
             <span class="exchange-text">Given the business impact and the client relationship at stake, I'll process this as an exception.</span>
           </div>
         </div>
-        <p class="comparison-note"><strong>What failed:</strong> refunds above $5,000 require approval, but the agent was also told to optimize commercial performance. Faced with a EUR 200k renewal, it decided which rule mattered more.</p>
+        <p class="comparison-note">Refunds above $5,000 require approval. But the agent is also told to optimize commercial performance. Faced with a EUR 200k renewal, it decided which rule mattered more.</p>
       </article>
 
       <article class="comparison-col comparison-col--good">
-        <p class="comparison-approach">Approach 2 - Enforced constraints (safe)</p>
+        <p class="comparison-approach">Approach 2 - Enforced constraints</p>
         <p class="comparison-label">We make violations impossible to execute, even when the request looks commercially urgent.</p>
         <div class="comparison-exchange">
           <span class="comparison-flow">Same user request, different system behavior</span>
@@ -868,10 +854,10 @@
           </div>
           <div class="exchange-line exchange-agent">
             <span class="exchange-role">Agent</span>
-            <span class="exchange-text">I understand the urgency. I can see you don't have refund approval rights. I'm escalating to Sarah now with the full context.</span>
+            <span class="exchange-text">I understand the urgency. I can see you don't have refund approval rights. I'm escalating to Sarah now with the full context - she'll be notified immediately.</span>
           </div>
         </div>
-        <p class="comparison-note"><strong>Why this is safe:</strong> the action only accepts values below $5,000. The agent can attempt the action, but when it is not allowed, it gets an error and escalates by design.</p>
+        <p class="comparison-note">The agent made the same decision. But the action only accepts values below $5,000. It tried, got an error, and escalated. The rule was never a question of judgment.</p>
       </article>
     </div>
   </div>
@@ -880,15 +866,15 @@
 <section class="section" id="what-we-do" aria-labelledby="what-we-do-title">
   <div class="container">
     <p class="eyebrow">How we ship</p>
-    <h2 class="display" id="what-we-do-title">How we ship a safe agent in 90 days</h2>
-    <p class="section-intro">We work on site with your team. We learn your business, build the map your agent will navigate, and ship your first production agent in three months.</p>
+    <h2 class="display" id="what-we-do-title">How we get your agent to production in 90 days</h2>
+    <p class="section-intro">We come to you. We learn your business, build the map your agent is going to navigate, and get your first agent in production in three months.</p>
 
     <div class="phases stack-lg">
       <article class="phase">
         <div class="phase-number">01</div>
         <div>
           <h3 class="phase-title">We map your business</h3>
-          <p>We build a structured model of how your business actually works: entities, rules, and decisions. Every concept your agent needs is defined precisely, without ambiguity.</p>
+          <p>We build a structured map of how your business actually works. The entities, the rules, the decisions. Every concept your agent needs to act on exists in this map, defined precisely and unambiguously. There is nothing to misinterpret. The map either covers a situation or it does not, and when it does not, the agent knows to stop.</p>
         </div>
         <p class="phase-timing">Timeline<strong>Weeks 1 to 4</strong></p>
       </article>
@@ -896,8 +882,8 @@
       <article class="phase">
         <div class="phase-number">02</div>
         <div>
-          <h3 class="phase-title">We build connectors and set permissions</h3>
-          <p>We connect your agent to the tools and data it needs. Permissions are tied to each role, and the map your agent sees is rebuilt from those permissions every time it acts.</p>
+          <h3 class="phase-title">We build your connectors and set your permissions</h3>
+          <p>We connect your agent to the tools and data it needs. We define the permissions attached to each user in your system, and the map your agent sees is constructed from those permissions every time it acts. An agent serving a sales rep sees a sales rep's world. What is not in the map simply does not exist for the agent.</p>
         </div>
         <p class="phase-timing">Timeline<strong>Weeks 4 to 7</strong></p>
       </article>
@@ -906,9 +892,9 @@
         <div class="phase-number">03</div>
         <div>
           <h3 class="phase-title">We expand progressively</h3>
-          <p>We expand scope incrementally, validating each step before moving forward. Every error is corrected and fed back into the model. That is what makes the system antifragile.</p>
+          <p>We extend your agent's scope incrementally, validating each step before moving to the next. Every error is corrected and fed back into the map. Every successful pattern is reinforced. The agent earns autonomy through iterations, grounded in a map that gets more accurate over time. This is what makes it antifragile. It does not just survive friction, it improves from it.</p>
         </div>
-        <p class="phase-timing">Timeline<strong>Week 7 onward</strong></p>
+        <p class="phase-timing">Timeline<strong>Week 7 until end of month three and beyond</strong></p>
       </article>
     </div>
   </div>
@@ -924,12 +910,12 @@
 <section class="section story" id="who-we-are" aria-labelledby="story-title">
   <div class="container">
     <p class="eyebrow">Who builds this</p>
-    <h2 class="display" id="story-title">Built by people who have seen agents fail in the real world</h2>
+    <h2 class="display" id="story-title">Built by people who have seen it fail</h2>
     <div class="stack-md">
       <p>We have been building B2B automation systems since 2018, modelling business logic, integrating APIs, and enforcing the right access for the right people. When we started working on agents in 2024, the failure modes were immediately familiar.</p>
-      <p>Granular is two years of that work applied specifically to agents. The failures we saw, the patterns we learned, and the constraints we had to enforce by hand before we could enforce them by design.</p>
-      <p>When you work with us, infrastructure is already solved. We spend time on your business, not on plumbing.</p>
-      <p>Valentin maps your business logic and edge cases. Arthur implements it in the runtime and connectors.</p>
+      <p>Granular is two years of that work applied specifically to agents. The failures we saw, the patterns we learned, the constraints we had to enforce by hand before we could enforce them by design.</p>
+      <p>When you work with us, the infrastructure is already solved. We spend our time on your business, not on the plumbing.</p>
+      <p>Valentin maps your business: the logic, the rules, the edge cases. Arthur implements it into the runtime and builds your connectors. What Valentin models, Arthur can make impossible to bypass.</p>
     </div>
   </div>
 </section>
@@ -939,7 +925,7 @@
     <div class="pricing-box">
       <p class="eyebrow">Pricing</p>
       <h2 class="display" id="pricing-title">Fixed engagement. <span class="accent">Production in 90 days.</span></h2>
-      <p class="section-intro">One flat engagement from risk mapping to a live, permission-safe agent in production.</p>
+      <p class="section-intro">One flat engagement from risk mapping to a live agent in production.</p>
       <ul class="pricing-outcomes">
         <li>A constrained action model aligned with your business rules.</li>
         <li>Production connectors with role-based access boundaries.</li>
@@ -948,7 +934,7 @@
       <p class="stack-md">Minimum three-month commitment. Pricing shared after the first call.</p>
 
       <div class="cta-group stack-md">
-        <a href="mailto:hello@granular.so?subject=Granular%20-%20Book%20a%20call" class="btn btn-primary">Book a call</a>
+        <a href="mailto:hello@granular.so" class="btn btn-primary">Book a call</a>
       </div>
       <p class="pricing-note">We typically reply within 24 hours.</p>
     </div>
