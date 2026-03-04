@@ -15,6 +15,7 @@
     --bg: #f3ede5;
     --surface: #f9f4ee;
     --surface-strong: #fcf8f2;
+    --card-bg: #fbf7f2;
     --text: #131111;
     --muted: #645f5b;
     --muted-strong: #504b47;
@@ -24,6 +25,9 @@
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 18px;
+    --card-border: 1px solid var(--line);
+    --card-radius: 12px;
+    --card-shadow: 0 14px 30px rgba(19, 17, 17, 0.06);
     --shadow-soft: 0 14px 30px rgba(19, 17, 17, 0.06);
 
     --container: 1120px;
@@ -175,9 +179,10 @@
 
   .stat-banner {
     padding: 0.95rem 1.05rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-sm);
-    background: color-mix(in srgb, var(--surface) 84%, white 16%);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    background: var(--card-bg);
   }
 
   .stat-row {
@@ -211,6 +216,18 @@
     font-size: 0.76rem;
     color: var(--muted);
     letter-spacing: 0.02em;
+  }
+
+  .stat-source a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .stat-source a:hover,
+  .stat-source a:focus-visible {
+    border-bottom-color: currentColor;
   }
 
   h1 {
@@ -313,10 +330,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: color-mix(in srgb, var(--surface-strong) 90%, white 10%);
-    box-shadow: var(--shadow-soft);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
     overflow: hidden;
   }
 
@@ -394,14 +411,14 @@
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     background: var(--line);
-    border-radius: var(--radius-md);
+    border-radius: var(--card-radius);
     overflow: hidden;
   }
 
   .comparison-col {
     display: flex;
     flex-direction: column;
-    background: color-mix(in srgb, var(--surface-strong) 92%, white 8%);
+    background: var(--card-bg);
     padding: clamp(1.25rem, 3.8vw, 2.4rem);
     border-top: 3px solid transparent;
     transition: box-shadow 0.25s ease;
@@ -480,11 +497,13 @@
   .comparison-note {
     margin-top: auto;
     padding: 0.78rem 0.82rem;
-    border: 1px solid var(--line);
-    background: color-mix(in srgb, white 30%, var(--surface-strong) 70%);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
     font-size: var(--step--1);
     font-style: normal;
     line-height: 1.65;
+    box-shadow: none;
   }
 
   .comparison-col:hover {
@@ -587,11 +606,11 @@
   }
 
   .pricing-box {
-    background: color-mix(in srgb, var(--surface-strong) 85%, white 15%);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
     padding: clamp(1.2rem, 2.5vw, 1.85rem);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--card-shadow);
   }
 
   .pricing-list {
@@ -728,7 +747,7 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">Granular</div>
+    <a href="#" class="logo">Granular</a>
     <ul class="nav-links">
       <li><a href="#foundation">Why it fails</a></li>
       <li><a href="#what-we-do">How we ship</a></li>
@@ -745,7 +764,7 @@
         <span class="stat-pill">New data</span>
         <span class="stat-text">1 in 3 enterprise data security incidents now involves AI.</span>
       </div>
-      <p class="stat-source">Source: Microsoft Data Security Index, 2026</p>
+      <p class="stat-source"><a href="https://www.microsoft.com/en-us/security/blog/2026/01/29/new-microsoft-data-security-index-report-explores-secure-ai-adoption-to-protect-sensitive-data/" target="_blank" rel="noopener noreferrer">Source: Microsoft Data Security Index, 2026</a></p>
     </div>
 
     <h1>
