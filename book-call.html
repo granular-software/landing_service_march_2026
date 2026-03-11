@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a call - Granular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    background:
+      radial-gradient(circle at 12% 0%, #fefaf3 0%, #f3ede5 36%),
+      radial-gradient(circle at 84% 12%, #efe4d7 0%, transparent 36%) fixed;
+    color: #131111;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .container {
+    width: min(980px, calc(100% - 2rem));
+    margin: 0 auto;
+  }
+  .topbar {
+    padding: 1.2rem 0;
+  }
+  .logo {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .hero {
+    padding: clamp(3rem, 8vw, 6rem) 0 2rem;
+  }
+  .intro {
+    max-width: 720px;
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #645f5b;
+    font-weight: 700;
+  }
+  h1 {
+    margin: 0 0 1rem;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 5.8vw, 4.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    max-width: 12ch;
+  }
+  .lead {
+    margin: 0;
+    max-width: 54ch;
+    font-size: clamp(1.02rem, 0.96rem + 0.25vw, 1.14rem);
+    color: #504b47;
+  }
+  .panel {
+    border: 1px solid #d9d2ca;
+    border-radius: 12px;
+    background: #fbf7f2;
+    box-shadow: 0 14px 30px rgba(19, 17, 17, 0.06);
+    padding: clamp(1rem, 2.5vw, 1.4rem);
+  }
+  .panel-note {
+    margin: 0 0 1rem;
+    font-size: 0.92rem;
+    color: #645f5b;
+  }
+  .meetings-iframe-container {
+    min-height: 700px;
+  }
+  @media (max-width: 640px) {
+    .container { width: min(980px, calc(100% - 1.25rem)); }
+    .hero { padding-top: 2.4rem; }
+    .meetings-iframe-container { min-height: 760px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container topbar">
+    <a class="logo" href="index.html">Granular</a>
+  </div>
+
+  <main class="container hero">
+    <div class="intro">
+      <p class="eyebrow">Book a call</p>
+      <h1>Pick a time to talk</h1>
+      <p class="lead">Use the calendar below to book a call with Valentin.<br><br>
+      We’ll use the time to understand your workflows, the systems you're connecting, and where AI agents or automation could realistically fit.<br><br>
+      If it makes sense, we can also discuss how Granular can support the architecture.</p>
+    </div>
+
+    <section class="panel" aria-label="Booking calendar">
+      <p class="panel-note">The meeting will be booked directly in HubSpot.</p>
+      <div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/valentin26?embed=true"></div>
+    </section>
+  </main>
+
+  <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+</body>
+</html>
