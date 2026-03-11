@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why Native Pipedrive AI Agents Aren't Enough | Granular</title>
+<meta name="description" content="Native Pipedrive AI agents are useful inside the CRM, but real operations run across multiple systems. Granular models the domain so agents can generate cross-system insights and execute permission-aware actions." />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#F2EDE6" />
+<link rel="canonical" href="https://service.granular.software/why-native-pipedrive-ai-agents-arent-enough" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Why Native Pipedrive AI Agents Aren't Enough | Granular" />
+<meta property="og:description" content="Pipedrive is a good starting point. It is not where operations end. See why native CRM agents hit structural limits and what a cross-system architecture unlocks." />
+<meta property="og:site_name" content="Granular" />
+<meta property="og:url" content="https://service.granular.software/why-native-pipedrive-ai-agents-arent-enough" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Why Native Pipedrive AI Agents Aren't Enough | Granular" />
+<meta name="twitter:description" content="Native CRM agents stop at the edge of the CRM. Granular builds agents that understand the full operating domain across systems." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Why Native Pipedrive AI Agents Aren't Enough",
+  "url": "https://service.granular.software/why-native-pipedrive-ai-agents-arent-enough",
+  "description": "Native Pipedrive AI agents are useful inside the CRM, but real operations run across multiple systems. Granular models the domain so agents can generate cross-system insights and execute permission-aware actions.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Granular",
+    "url": "https://service.granular.software/"
+  },
+  "about": [
+    "Pipedrive",
+    "AI agents",
+    "CRM automation",
+    "Cross-system operations",
+    "Permission-aware execution"
+  ]
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --bg: #f3ede5;
+    --surface: #fcf8f3;
+    --surface-strong: #fffdf9;
+    --card-bg: #fefbf7;
+    --ink: #131111;
+    --muted: #645f5b;
+    --muted-strong: #504b47;
+    --line: #d9d2ca;
+    --accent: #b6382a;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --card-border: 1px solid var(--line);
+    --card-shadow: 0 14px 30px rgba(19, 17, 17, 0.06);
+    --card-radius: 14px;
+    --container: 1080px;
+    --section-space: clamp(74px, 9vw, 136px);
+    --reading-width: 66ch;
+    --font-body: 'Manrope', sans-serif;
+    --font-display: 'Fraunces', serif;
+    --step--1: clamp(0.8rem, 0.76rem + 0.18vw, 0.92rem);
+    --step-0: clamp(1rem, 0.93rem + 0.28vw, 1.1rem);
+    --step-1: clamp(1.2rem, 1.08rem + 0.56vw, 1.42rem);
+    --step-2: clamp(1.5rem, 1.28rem + 0.9vw, 2rem);
+    --step-3: clamp(1.95rem, 1.58rem + 1.75vw, 3.08rem);
+    --step-4: clamp(2.45rem, 1.92rem + 2.7vw, 4.5rem);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background:
+      radial-gradient(circle at 12% 0%, #fefaf3 0%, var(--bg) 36%),
+      radial-gradient(circle at 84% 12%, #efe4d7 0%, transparent 36%) fixed;
+    color: var(--ink);
+    line-height: 1.68;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: min(var(--container), calc(100% - 3rem));
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: var(--section-space);
+    border-top: 1px solid var(--line);
+  }
+
+  p { margin: 0; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: var(--step--1);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.05rem;
+    font-weight: 700;
+  }
+
+  .display {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 1.76rem + 1.72vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    font-weight: 500;
+    text-wrap: balance;
+    max-width: 19ch;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0.88rem 1.4rem;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(182, 56, 42, 0.26);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--line);
+    color: var(--ink);
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .btn:focus-visible,
+  .nav-doc:focus-visible,
+  .nav-links a:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 78%, white 22%);
+    outline-offset: 2px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+    background: color-mix(in srgb, var(--bg) 88%, white 12%);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-inner {
+    width: min(var(--container), calc(100% - 3rem));
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 74px;
+    gap: 1.25rem;
+  }
+
+  .nav-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+    min-width: 0;
+  }
+
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.7rem, 1.5vw, 1.2rem);
+    justify-content: flex-end;
+  }
+
+  .nav-links a {
+    color: var(--muted-strong);
+    text-decoration: none;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible { color: var(--ink); }
+
+  .wordmark {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-doc {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0.45rem 0.82rem;
+    border: 1px solid color-mix(in srgb, var(--line) 84%, #b8b0a8 16%);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, white 26%, var(--surface-strong) 74%);
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    color: var(--muted-strong);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .nav-doc:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .hero {
+    position: relative;
+    padding-block: clamp(86px, 11.8vw, 168px) clamp(96px, 11vw, 146px);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(1.15rem, 2vw, 1.85rem);
+    max-width: 780px;
+  }
+
+  .hero-h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.65rem, 5.5vw, 4.95rem);
+    line-height: 0.94;
+    letter-spacing: -0.042em;
+    font-weight: 500;
+    max-width: 14ch;
+  }
+
+  .hero-h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: clamp(1.08rem, 1rem + 0.36vw, 1.26rem);
+    max-width: 56ch;
+    line-height: 1.58;
+    color: var(--muted-strong);
+  }
+
+  .incident-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: 0 18px 36px rgba(19, 17, 17, 0.08);
+    overflow: hidden;
+  }
+
+  .incident-item {
+    padding: 1.15rem 1.3rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .incident-item:first-child { border-top: 0; }
+
+  .incident-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .incident-tag,
+  .incident-date {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .incident-date { color: var(--muted); }
+
+  .incident-tag {
+    color: var(--accent);
+    border: 1px solid currentColor;
+    padding: 0.19rem 0.44rem;
+  }
+
+  .incident-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.18rem, 1.05rem + 0.34vw, 1.36rem);
+    line-height: 1.26;
+    color: var(--ink);
+    max-width: 46ch;
+    font-weight: 500;
+    text-wrap: pretty;
+  }
+
+  .incident-copy {
+    margin-top: 0.55rem;
+    font-size: var(--step-0);
+    line-height: 1.68;
+    color: var(--muted-strong);
+    max-width: 62ch;
+  }
+
+  .problem .display {
+    font-size: clamp(2.05rem, 1.76rem + 1.2vw, 2.9rem);
+    max-width: 22ch;
+  }
+
+  .problem em,
+  .interlude-text em,
+  .end h2 em { color: var(--accent); font-style: italic; }
+
+  .playground-sub,
+  .interlude-text,
+  .section-copy {
+    margin-top: 0.9rem;
+    color: var(--muted-strong);
+    font-size: var(--step-0);
+    max-width: 64ch;
+    line-height: 1.72;
+  }
+
+  .display + .section-copy,
+  .display + .playground-sub {
+    margin-top: 1.15rem;
+  }
+
+  .section-copy + .section-copy,
+  .playground-sub + .playground-sub {
+    margin-top: 0.8rem;
+  }
+
+  .interlude-panel {
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-shadow);
+    padding: clamp(1.3rem, 2.8vw, 2.1rem);
+    border-top: 3px solid var(--accent);
+  }
+
+  .interlude-text {
+    margin-top: 0;
+    font-size: var(--step-1);
+    line-height: 1.65;
+    color: var(--ink);
+    font-weight: 600;
+    max-width: 58ch;
+  }
+
+  .levels {
+    margin-top: 2rem;
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: 0 18px 34px rgba(19, 17, 17, 0.08);
+    overflow: hidden;
+  }
+
+  .level {
+    padding: clamp(1.35rem, 3vw, 2.1rem);
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 1.1rem;
+  }
+
+  .level:first-child { border-top: 0; }
+
+  .level-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3.8vw, 2.35rem);
+    color: color-mix(in srgb, var(--line) 65%, #b7aea6 35%);
+    line-height: 1;
+  }
+
+  .level-label {
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .level-title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.38rem, 1.24rem + 0.46vw, 1.72rem);
+    line-height: 1.18;
+    color: var(--ink);
+    font-weight: 500;
+    max-width: 28ch;
+  }
+
+  .level-body {
+    font-size: var(--step-0);
+    color: var(--muted-strong);
+    max-width: 62ch;
+    line-height: 1.74;
+  }
+
+  .level-example {
+    margin-top: 1rem;
+    padding: 0.92rem 1rem;
+    border: var(--card-border);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--surface) 78%, white 22%);
+    font-size: var(--step--1);
+    color: var(--muted-strong);
+    line-height: 1.74;
+    max-width: 64ch;
+  }
+
+  .level-example strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .outcomes-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .outcome-card {
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .outcome-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.18rem, 1.08rem + 0.36vw, 1.42rem);
+    line-height: 1.18;
+    font-weight: 500;
+  }
+
+  .outcome-card p {
+    color: var(--muted-strong);
+    font-size: var(--step-0);
+    line-height: 1.72;
+  }
+
+  .comparison-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: var(--step-0);
+    line-height: 1.65;
+  }
+
+  .comparison-table thead th {
+    text-align: left;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 500;
+    color: var(--ink);
+    vertical-align: bottom;
+  }
+
+  .comparison-table thead th:first-child,
+  .comparison-table tbody th {
+    padding-left: 0;
+  }
+
+  .comparison-table tbody th,
+  .comparison-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .comparison-table tbody tr:last-child th,
+  .comparison-table tbody tr:last-child td {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .comparison-table tbody th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--ink);
+    width: 28%;
+  }
+
+  .comparison-table tbody td {
+    color: var(--muted-strong);
+  }
+
+  .end {
+    border-top: 1px solid var(--line);
+    padding-block: clamp(74px, 10vw, 118px);
+    text-align: center;
+  }
+
+  .end h2 {
+    margin: 0 auto 1.2rem;
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 1.8rem + 1.4vw, 3.1rem);
+    line-height: 1.03;
+    letter-spacing: -0.018em;
+    font-weight: 500;
+  }
+
+  .end p {
+    margin: 0 auto 1.6rem;
+    max-width: 54ch;
+    color: var(--muted-strong);
+    font-size: var(--step-0);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 780px) {
+    .container,
+    .nav-inner { width: min(var(--container), calc(100% - 2rem)); }
+
+    .nav-inner {
+      min-height: 66px;
+      gap: 0.7rem;
+    }
+
+    .nav-main {
+      min-width: 0;
+      gap: 0.55rem;
+    }
+
+    .nav-links {
+      justify-content: flex-start;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .hero {
+      padding-top: 78px;
+      padding-bottom: 82px;
+    }
+
+    .display {
+      max-width: 17ch;
+    }
+
+    .hero-sub,
+    .section-copy,
+    .playground-sub,
+    .level-body {
+      max-width: 100%;
+    }
+
+    .outcomes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .level {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .btn { width: 100%; }
+
+    .nav-inner {
+      min-height: 62px;
+      gap: 0.6rem;
+    }
+
+    .wordmark {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-main { gap: 0.45rem; }
+
+    .nav-links a {
+      font-size: 0.68rem;
+      letter-spacing: 0.045em;
+    }
+
+    .incident-item { padding: 0.95rem; }
+
+    .interlude-panel,
+    .outcome-card {
+      padding: 1rem;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.2rem, 10.4vw, 3.08rem);
+      max-width: 12.4ch;
+      line-height: 0.95;
+    }
+
+    .problem .display,
+    .end h2 {
+      font-size: clamp(1.74rem, 8.1vw, 2.42rem);
+      line-height: 1.1;
+    }
+
+    .comparison-table {
+      min-width: 640px;
+      font-size: 0.98rem;
+    }
+
+    .comparison-table thead th,
+    .comparison-table tbody th,
+    .comparison-table tbody td {
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Granular</a>
+    <div class="nav-main">
+      <ul class="nav-links">
+        <li><a href="#appeal">Appeal</a></li>
+        <li><a href="#limits">Limits</a></li>
+        <li><a href="#framework">Compare</a></li>
+        <li><a href="#approach">Architecture</a></li>
+        <li><a href="#cta">Discuss</a></li>
+      </ul>
+      <a href="book-call.html" class="nav-doc">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <span class="eyebrow">Pipedrive</span>
+    <h1 class="hero-h1">Native Pipedrive AI agents help inside the CRM. <em>Your business does not live there.</em></h1>
+    <p class="hero-sub">Native Pipedrive AI agents are becoming a common feature in modern CRM platforms. These CRM-native AI agents can assist with summaries, follow-ups and pipeline insights directly inside the CRM.</p>
+    <p class="hero-sub">However, many companies quickly encounter the limitations of CRM AI agents once operations extend beyond the CRM itself. Real businesses operate across multiple systems. This is where cross-system AI agents become necessary.</p>
+    <div class="cta-group">
+      <a href="book-call.html" class="btn btn-primary">Book a call</a>
+      <a href="#approach" class="btn btn-ghost">See the architecture</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="appeal">
+  <div class="container">
+    <span class="eyebrow">Why CRM-native agents are appealing</span>
+    <h2 class="display">They start where the business already has structure.</h2>
+    <p class="section-copy">This is why CRM-native AI agents make sense as a first step.</p>
+    <p class="section-copy">The CRM already contains a structured representation of commercial activity: pipeline stages, account ownership, activity history, next steps and deal context.</p>
+    <p class="section-copy">It provides a clean environment where an AI agent can assist with tasks like summarizing deals, suggesting follow-ups or improving pipeline hygiene.</p>
+    <p class="section-copy">For many companies this immediately creates visible improvements.</p>
+    <p class="section-copy">The feedback loop is short because teams already live inside the CRM.</p>
+    <p class="section-copy">But the moment decisions depend on more than what lives inside that system, the limits appear.</p>
+    <div class="interlude-panel" style="margin-top: 2rem;">
+      <p class="interlude-text">The problem is not that native CRM agents are bad. The problem is that companies do not operate inside their CRM.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section problem" id="limits">
+  <div class="container">
+    <span class="eyebrow">Why they hit structural limits</span>
+    <h2 class="display">A native SaaS agent can only reason inside the boundaries of that SaaS.</h2>
+    <p class="section-copy">A CRM-native AI agent can see pipeline state, notes, activities and deal ownership.</p>
+    <p class="section-copy">But many real decisions depend on information that lives elsewhere:</p>
+    <ul class="incident-list" style="margin-top: 2rem;">
+      <li class="incident-item">
+        <div class="incident-meta">
+          <span class="incident-tag">Support</span>
+          <span class="incident-date">Operational context</span>
+        </div>
+        <h3 class="incident-title">Support tickets, billing status, contracts, product usage.</h3>
+        <p class="incident-copy">None of this context necessarily lives inside the CRM, yet it often determines what should happen next.</p>
+      </li>
+      <li class="incident-item">
+        <div class="incident-meta">
+          <span class="incident-tag">Execution</span>
+          <span class="incident-date">Constraints</span>
+        </div>
+        <h3 class="incident-title">Onboarding progress, internal approval rules, operational capacity.</h3>
+        <p class="incident-copy">Once the decision depends on more than what the CRM knows, the agent begins operating with partial reality. This is where the CRM stops being enough and fragile automation begins.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="framework">
+  <div class="container">
+    <span class="eyebrow">CRM-native agents vs cross-system agents</span>
+    <h2 class="display">A simple framework for understanding the architectural difference.</h2>
+    <div class="interlude-panel" style="margin-top: 2rem;">
+      <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Comparison dimension</th>
+            <th>CRM-native agents</th>
+            <th>Cross-system agents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Where the agent operates</th>
+            <td>Inside one SaaS tool</td>
+            <td>Across multiple business systems</td>
+          </tr>
+          <tr>
+            <th scope="row">Context available</th>
+            <td>CRM data only</td>
+            <td>Multi-system operational context</td>
+          </tr>
+          <tr>
+            <th scope="row">Actions</th>
+            <td>Suggestions and summaries</td>
+            <td>Operational actions across tools</td>
+          </tr>
+          <tr>
+            <th scope="row">Permissions</th>
+            <td>Tool-level permissions</td>
+            <td>User-level permission inheritance</td>
+          </tr>
+          <tr>
+            <th scope="row">Architecture</th>
+            <td>Product feature</td>
+            <td>Operational system layer</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="practice">
+  <div class="container">
+    <span class="eyebrow">What this looks like in practice</span>
+    <h2 class="display">The difference is not AI. The difference is what the agent can actually see and do.</h2>
+    <div class="levels">
+      <article class="level">
+        <span class="level-num">01</span>
+        <div>
+          <span class="level-label">A native CRM agent can see</span>
+          <h3 class="level-title">Deal stage, notes, activity history, owner context.</h3>
+          <p class="level-body">A sales rep asks: "Can I move this deal forward?" Inside the CRM, the agent can review the deal record and commercial activity attached to it.</p>
+          <div class="level-example"><strong>Useful:</strong> it can summarize the account and surface the local CRM context.</div>
+        </div>
+      </article>
+      <article class="level">
+        <span class="level-num">02</span>
+        <div>
+          <span class="level-label">A cross-system agent can also see</span>
+          <h3 class="level-title">Support escalations, unpaid invoices, onboarding backlog, provisioning constraints, internal approval requirements.</h3>
+          <p class="level-body">And if permitted, it can act. It might update the CRM, notify operations, trigger onboarding preparation or create the correct internal task. That is the difference between local assistance and operational execution.</p>
+          <div class="level-example"><strong>Difference:</strong> this is the difference between an assistant inside a tool and an agent operating across the business.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="interlude-panel">
+      <p class="interlude-text">Real operations span <em>multiple systems</em>. Revenue, support, onboarding, finance, access control, and internal approvals do not collapse neatly into one CRM record. Once decisions depend on multiple systems, the architecture has to change.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="approach">
+  <div class="container">
+    <span class="eyebrow">Our approach</span>
+    <h2 class="display">Model the domain first. Then let agents operate inside it.</h2>
+    <p class="playground-sub">The correct architecture is not "give the CRM an assistant".</p>
+    <p class="playground-sub">It is "define the operational world, then let agents act inside the rules of that world". At that point, the question is no longer how to assist inside the CRM, but how to operate across systems safely.</p>
+
+    <div class="levels">
+      <article class="level">
+        <span class="level-num">01</span>
+        <div>
+          <span class="level-label">Model data</span>
+          <h3 class="level-title">Define the entities that actually matter across the business.</h3>
+          <p class="level-body">Not just deals and contacts, but also contracts, subscriptions, invoices, tickets, deployments, entitlements and the relationships between them.</p>
+          <div class="level-example"><strong>Result:</strong> the agent can reason across the real operating model, not just the CRM schema.</div>
+        </div>
+      </article>
+      <article class="level">
+        <span class="level-num">02</span>
+        <div>
+          <span class="level-label">Model logic</span>
+          <h3 class="level-title">Encode how the business actually makes decisions.</h3>
+          <p class="level-body">Escalation rules, approval conditions, commercial thresholds, operational blockers and exception paths. Most naive AI systems fail here because the rules remain implicit and the agent is left to guess.</p>
+          <div class="level-example"><strong>Result:</strong> judgment becomes architecture instead of prompt interpretation.</div>
+        </div>
+      </article>
+      <article class="level">
+        <span class="level-num">03</span>
+        <div>
+          <span class="level-label">Model actions</span>
+          <h3 class="level-title">Connect the systems where work actually happens.</h3>
+          <p class="level-body">The CRM is one node. The agent must also interact with billing systems, support platforms, identity layers and internal operational tools where work is actually executed.</p>
+          <div class="level-example"><strong>Result:</strong> the agent can trigger real cross-system actions instead of producing suggestions that stop inside the CRM.</div>
+        </div>
+      </article>
+      <article class="level">
+        <span class="level-num">04</span>
+        <div>
+          <span class="level-label">Model security</span>
+          <h3 class="level-title">Make permissions part of the architecture.</h3>
+          <p class="level-body">Every employee should only see and trigger actions within their scope. The agent inherits those boundaries dynamically across every connected system, so agent permissions remain aligned with the real organization.</p>
+          <div class="level-example"><strong>Result:</strong> insights and actions remain permission-aware by default.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="unlocks">
+  <div class="container">
+    <span class="eyebrow">What this unlocks</span>
+    <h2 class="display">The agent becomes an operational interface across systems.</h2>
+    <div class="outcomes-grid">
+      <article class="outcome-card">
+        <h3>Cross-system insights</h3>
+        <p>Generate operational context from the systems that actually matter: CRM, support, billing, onboarding and internal operations. Not a summary of one tool, but a usable view of the situation filtered by the employee's permissions.</p>
+      </article>
+      <article class="outcome-card">
+        <h3>Cross-system actions</h3>
+        <p>Do more than suggest the next step. Trigger the next operational action directly in the correct system when the rules permit it.</p>
+      </article>
+      <article class="outcome-card">
+        <h3>Permission-aware execution</h3>
+        <p>The same agent behaves differently for a sales rep, operator or manager because the architecture respects each person's real scope and enforces agent permissions at the user level.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Why CRM is the start, not the destination</span>
+    <h2 class="display">Pipedrive is a useful entry point. It is not the final architecture.</h2>
+    <p class="section-copy">Starting from the CRM makes sense because that is where commercial activity is visible.</p>
+    <p class="section-copy">But if the ambition is real operational leverage, the system must go further.</p>
+    <p class="section-copy">The value is not an AI feature inside Pipedrive.</p>
+    <p class="section-copy">The value is a permission-aware agent that understands and acts across the systems the business actually runs on. <a href="index.html" style="color:inherit;">Our main service page explains how we design these architectures in practice.</a></p>
+  </div>
+</section>
+
+<section class="end" id="cta">
+  <div class="container">
+    <h2>If Pipedrive is where the conversation starts, <em>we can help design what comes next.</em></h2>
+    <p>Book a call if you want to assess whether a CRM-native agent is enough for your company, or whether your use case requires a real cross-system architecture.</p>
+    <div class="cta-group" style="justify-content:center;">
+      <a href="book-call.html" class="btn btn-primary">Book a call</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
