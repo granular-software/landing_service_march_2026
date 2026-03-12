@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why Native Pipedrive AI Agents Aren't Enough | Granular</title>
+<meta name="description" content="Native Pipedrive AI agents are useful inside the CRM, but real operations run across multiple systems. Granular models the domain so agents can generate cross-system insights and execute permission-aware actions." />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#F2EDE6" />
+<link rel="canonical" href="https://service.granular.software/why-native-pipedrive-ai-agents-arent-enough" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Why Native Pipedrive AI Agents Aren't Enough | Granular" />
+<meta property="og:description" content="Pipedrive is a good starting point. It is not where operations end. See why native CRM agents hit structural limits and what a cross-system architecture unlocks." />
+<meta property="og:site_name" content="Granular" />
+<meta property="og:url" content="https://service.granular.software/why-native-pipedrive-ai-agents-arent-enough" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Why Native Pipedrive AI Agents Aren't Enough | Granular" />
+<meta name="twitter:description" content="Native CRM agents stop at the edge of the CRM. Granular builds agents that understand the full operating domain across systems." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Why Native Pipedrive AI Agents Aren't Enough",
+  "url": "https://service.granular.software/why-native-pipedrive-ai-agents-arent-enough",
+  "description": "Native Pipedrive AI agents are useful inside the CRM, but real operations run across multiple systems. Granular models the domain so agents can generate cross-system insights and execute permission-aware actions.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Granular",
+    "url": "https://service.granular.software/"
+  },
+  "about": [
+    "Pipedrive",
+    "AI agents",
+    "CRM automation",
+    "Cross-system operations",
+    "Permission-aware execution"
+  ]
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --bg: #f3ede5;
+    --surface: #fcf8f3;
+    --surface-strong: #fffdf9;
+    --card-bg: #fefbf7;
+    --ink: #131111;
+    --muted: #645f5b;
+    --muted-strong: #504b47;
+    --line: #d9d2ca;
+    --accent: #b6382a;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --card-border: 1px solid var(--line);
+    --card-shadow: 0 16px 34px rgba(19, 17, 17, 0.065);
+    --card-radius: 14px;
+    --container: 1080px;
+    --section-space: clamp(74px, 9vw, 136px);
+    --reading-width: 66ch;
+    --font-body: 'Manrope', sans-serif;
+    --font-display: 'Fraunces', serif;
+    --step--1: clamp(0.8rem, 0.76rem + 0.18vw, 0.92rem);
+    --step-0: clamp(1rem, 0.93rem + 0.28vw, 1.1rem);
+    --step-1: clamp(1.2rem, 1.08rem + 0.56vw, 1.42rem);
+    --step-2: clamp(1.5rem, 1.28rem + 0.9vw, 2rem);
+    --step-3: clamp(1.95rem, 1.58rem + 1.75vw, 3.08rem);
+    --step-4: clamp(2.45rem, 1.92rem + 2.7vw, 4.5rem);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background:
+      radial-gradient(circle at 12% 0%, #fefaf3 0%, var(--bg) 36%),
+      radial-gradient(circle at 84% 12%, #efe4d7 0%, transparent 36%) fixed;
+    color: var(--ink);
+    line-height: 1.68;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: min(var(--container), calc(100% - 3rem));
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: var(--section-space);
+    border-top: 1px solid var(--line);
+  }
+
+  p { margin: 0; }
+
+  .playground-sub a,
+  .section-copy a,
+  .level-body a,
+  .level-example a {
+    color: var(--ink) !important;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 42%, transparent);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .playground-sub a:hover,
+  .section-copy a:hover,
+  .level-body a:hover,
+  .level-example a:hover,
+  .playground-sub a:focus-visible,
+  .section-copy a:focus-visible,
+  .level-body a:focus-visible,
+  .level-example a:focus-visible {
+    color: var(--accent) !important;
+    border-bottom-color: currentColor;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: var(--step--1);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.05rem;
+    font-weight: 700;
+  }
+
+  .eyebrow-row,
+  .diagram-label-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.05rem;
+  }
+
+  .eyebrow-row .eyebrow,
+  .diagram-label-row .diagram-label {
+    margin-bottom: 0;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    padding: 0.32rem 0.56rem;
+    border: 1px solid color-mix(in srgb, var(--line) 80%, #c9c0b7 20%);
+    border-radius: 999px;
+    background: color-mix(in srgb, white 22%, var(--surface) 78%);
+    color: var(--ink);
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .brand-badge-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 999px;
+    background: #1f8f63;
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 800;
+    font-family: var(--font-body);
+  }
+
+  .display {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 1.76rem + 1.72vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    font-weight: 500;
+    text-wrap: balance;
+    max-width: 19ch;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0.88rem 1.4rem;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(182, 56, 42, 0.26);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--line);
+    color: var(--ink);
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .btn:focus-visible,
+  .nav-doc:focus-visible,
+  .nav-links a:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 78%, white 22%);
+    outline-offset: 2px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+    background: color-mix(in srgb, var(--bg) 88%, white 12%);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-inner {
+    width: min(var(--container), calc(100% - 3rem));
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 74px;
+    gap: 1.25rem;
+  }
+
+  .nav-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+    min-width: 0;
+  }
+
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.7rem, 1.5vw, 1.2rem);
+    justify-content: flex-end;
+  }
+
+  .nav-links a {
+    color: var(--muted-strong);
+    text-decoration: none;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible { color: var(--ink); }
+
+  .wordmark {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-doc {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0.45rem 0.82rem;
+    border: 1px solid color-mix(in srgb, var(--line) 84%, #b8b0a8 16%);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, white 26%, var(--surface-strong) 74%);
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    color: var(--muted-strong);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .nav-doc:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .hero {
+    position: relative;
+    padding-block: clamp(86px, 11.8vw, 168px) clamp(96px, 11vw, 146px);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(1.05rem, 1.9vw, 1.65rem);
+    max-width: 780px;
+  }
+
+  .hero-h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.65rem, 5.5vw, 4.95rem);
+    line-height: 0.94;
+    letter-spacing: -0.042em;
+    font-weight: 500;
+    max-width: 14ch;
+  }
+
+  .hero-h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: clamp(1.08rem, 1rem + 0.36vw, 1.26rem);
+    max-width: 52ch;
+    line-height: 1.52;
+    color: var(--muted-strong);
+  }
+
+  .incident-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: 0 18px 36px rgba(19, 17, 17, 0.08);
+    overflow: hidden;
+  }
+
+  .incident-item {
+    padding: 1.15rem 1.3rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .incident-item:first-child { border-top: 0; }
+
+  .incident-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .incident-tag,
+  .incident-date {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .incident-date { color: var(--muted); }
+
+  .incident-tag {
+    color: var(--accent);
+    border: 1px solid currentColor;
+    padding: 0.19rem 0.44rem;
+  }
+
+  .incident-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.18rem, 1.05rem + 0.34vw, 1.36rem);
+    line-height: 1.26;
+    color: var(--ink);
+    max-width: 46ch;
+    font-weight: 500;
+    text-wrap: pretty;
+  }
+
+  .incident-copy {
+    margin-top: 0.55rem;
+    font-size: var(--step-0);
+    line-height: 1.68;
+    color: var(--muted-strong);
+    max-width: 62ch;
+  }
+
+  .problem .display {
+    font-size: clamp(2.05rem, 1.76rem + 1.2vw, 2.9rem);
+    max-width: 22ch;
+  }
+
+  .problem em,
+  .interlude-text em,
+  .end h2 em { color: var(--accent); font-style: italic; }
+
+  .playground-sub,
+  .interlude-text,
+  .section-copy {
+    margin-top: 0.9rem;
+    color: var(--muted-strong);
+    font-size: var(--step-0);
+    max-width: 64ch;
+    line-height: 1.72;
+  }
+
+  .display + .section-copy,
+  .display + .playground-sub {
+    margin-top: 1.15rem;
+  }
+
+  .section-copy + .section-copy,
+  .playground-sub + .playground-sub {
+    margin-top: 0.8rem;
+  }
+
+  .interlude-panel {
+    background: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-shadow);
+    padding: clamp(1.3rem, 2.8vw, 2.1rem);
+    border-top: 3px solid var(--accent);
+  }
+
+  .interlude-text {
+    margin-top: 0;
+    font-size: var(--step-1);
+    line-height: 1.65;
+    color: var(--ink);
+    font-weight: 600;
+    max-width: 58ch;
+  }
+
+  .levels {
+    margin-top: 2rem;
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: 0 18px 34px rgba(19, 17, 17, 0.08);
+    overflow: hidden;
+  }
+
+  .level {
+    padding: clamp(1.35rem, 3vw, 2.1rem);
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 1.1rem;
+  }
+
+  .level:first-child { border-top: 0; }
+
+  .level-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3.8vw, 2.35rem);
+    color: color-mix(in srgb, var(--line) 65%, #b7aea6 35%);
+    line-height: 1;
+  }
+
+  .level-label {
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .level-title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.38rem, 1.24rem + 0.46vw, 1.72rem);
+    line-height: 1.18;
+    color: var(--ink);
+    font-weight: 500;
+    max-width: 28ch;
+  }
+
+  .level-body {
+    font-size: var(--step-0);
+    color: var(--muted-strong);
+    max-width: 62ch;
+    line-height: 1.74;
+  }
+
+  .level-example {
+    margin-top: 1rem;
+    padding: 0.92rem 1rem;
+    border: var(--card-border);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--surface) 78%, white 22%);
+    font-size: var(--step--1);
+    color: var(--muted-strong);
+    line-height: 1.74;
+    max-width: 64ch;
+  }
+
+  .level-example strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .outcomes-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .outcome-card {
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .outcome-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.18rem, 1.08rem + 0.36vw, 1.42rem);
+    line-height: 1.18;
+    font-weight: 500;
+  }
+
+  .outcome-card p {
+    color: var(--muted-strong);
+    font-size: var(--step-0);
+    line-height: 1.72;
+  }
+
+  .comparison-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.1rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: var(--step-0);
+    line-height: 1.65;
+  }
+
+  .comparison-table thead th {
+    text-align: left;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 500;
+    color: var(--ink);
+    vertical-align: bottom;
+  }
+
+  .comparison-table thead th:first-child,
+  .comparison-table tbody th {
+    padding-left: 0;
+  }
+
+  .comparison-table tbody th,
+  .comparison-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .comparison-table tbody tr:last-child th,
+  .comparison-table tbody tr:last-child td {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .comparison-table tbody th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--ink);
+    width: 28%;
+  }
+
+  .comparison-table tbody td {
+    color: var(--muted-strong);
+  }
+
+  .diagram-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .diagram-card {
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    padding: clamp(1.2rem, 2.8vw, 1.7rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    min-height: 100%;
+  }
+
+  .diagram-label {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .diagram-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.28rem, 1.18rem + 0.42vw, 1.56rem);
+    line-height: 1.18;
+    font-weight: 500;
+    max-width: 24ch;
+  }
+
+  .diagram-stack {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .diagram-node {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--surface) 86%, white 14%);
+    padding: 0.9rem 1rem;
+  }
+
+  .diagram-node--entry {
+    border-color: color-mix(in srgb, #1f8f63 30%, var(--line) 70%);
+    background: color-mix(in srgb, white 18%, #eef8f3 82%);
+  }
+
+  .diagram-node strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--ink);
+    font-size: var(--step-0);
+  }
+
+  .diagram-node span {
+    color: var(--muted-strong);
+    font-size: var(--step--1);
+    line-height: 1.6;
+  }
+
+  .diagram-arrow {
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+
+  .diagram-systems {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .diagram-chip {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.5rem 0.72rem;
+    text-align: center;
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    color: var(--muted-strong);
+    background: color-mix(in srgb, white 30%, var(--surface) 70%);
+  }
+
+  .map-diagram {
+    margin-top: 2rem;
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    padding: clamp(1.45rem, 3vw, 2.15rem);
+    border-top: 3px solid color-mix(in srgb, var(--accent) 72%, transparent);
+  }
+
+  .map-layer-stack {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .map-layer {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, white 18%, var(--surface) 82%);
+    padding: 1.05rem 1.15rem;
+  }
+
+  .map-layer--core {
+    border-color: color-mix(in srgb, var(--accent) 38%, var(--line) 62%);
+    background: color-mix(in srgb, white 24%, var(--surface) 76%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, white 40%, transparent);
+  }
+
+  .map-layer strong {
+    display: block;
+    margin-bottom: 0.28rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.14rem, 1.04rem + 0.34vw, 1.34rem);
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .map-layer p {
+    margin: 0;
+    font-size: var(--step--1);
+    color: var(--muted-strong);
+    line-height: 1.6;
+  }
+
+  .map-layer-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .map-layer-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .map-systems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .map-pill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .map-systems-grid .diagram-node,
+  .map-pill-grid .diagram-node {
+    height: 100%;
+  }
+
+  .map-arrow {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-block: 0.15rem;
+  }
+
+  .surface-panel {
+    border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line) 76%);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, white 22%, var(--surface) 78%);
+    padding: 1rem 1.05rem;
+  }
+
+  .surface-panel strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: clamp(1.08rem, 1rem + 0.24vw, 1.22rem);
+    font-weight: 500;
+  }
+
+  .surface-panel p {
+    margin: 0;
+    color: var(--muted-strong);
+    font-size: var(--step--1);
+    line-height: 1.62;
+  }
+
+  .surface-grid {
+    margin-top: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .surface-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, white 28%, var(--surface) 72%);
+    padding: 0.8rem 0.85rem;
+  }
+
+  .surface-card span {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--ink);
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .surface-card small {
+    display: block;
+    color: var(--muted-strong);
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  #implementation .display {
+    max-width: 18ch;
+  }
+
+  #implementation .playground-sub {
+    max-width: 58ch;
+    color: var(--ink);
+    font-size: clamp(1.04rem, 0.98rem + 0.2vw, 1.14rem);
+    line-height: 1.68;
+  }
+
+  #implementation .levels {
+    margin-top: 2.4rem;
+    border-top: 2px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    box-shadow: 0 18px 34px rgba(19, 17, 17, 0.07);
+  }
+
+  #implementation .level {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 1.2rem;
+  }
+
+  #implementation .level-num {
+    font-size: clamp(1.9rem, 3.8vw, 2.5rem);
+    color: color-mix(in srgb, var(--line) 52%, #b7aea6 48%);
+  }
+
+  #implementation .level-title {
+    max-width: 24ch;
+  }
+
+  #implementation .level-body {
+    max-width: 58ch;
+  }
+
+  #implementation .level-example {
+    max-width: 58ch;
+    background: color-mix(in srgb, white 18%, var(--surface) 82%);
+  }
+
+  .end {
+    border-top: 1px solid var(--line);
+    padding-block: clamp(74px, 10vw, 118px);
+    text-align: center;
+  }
+
+  .end h2 {
+    margin: 0 auto 1.2rem;
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 1.8rem + 1.4vw, 3.1rem);
+    line-height: 1.03;
+    letter-spacing: -0.018em;
+    font-weight: 500;
+  }
+
+  .end p {
+    margin: 0 auto 1.6rem;
+    max-width: 54ch;
+    color: var(--muted-strong);
+    font-size: var(--step-0);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 780px) {
+    .container,
+    .nav-inner { width: min(var(--container), calc(100% - 2rem)); }
+
+    .nav-inner {
+      min-height: 66px;
+      gap: 0.7rem;
+    }
+
+    .nav-main {
+      min-width: 0;
+      gap: 0.55rem;
+    }
+
+    .nav-links {
+      justify-content: flex-start;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .hero {
+      padding-top: 78px;
+      padding-bottom: 82px;
+    }
+
+    .display {
+      max-width: 17ch;
+    }
+
+    .hero-sub,
+    .section-copy,
+    .playground-sub,
+    .level-body {
+      max-width: 100%;
+    }
+
+    .outcomes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .level {
+      grid-template-columns: 1fr;
+    }
+
+    .diagram-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .map-systems-grid,
+    .map-pill-grid,
+    .surface-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #implementation .level {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .btn { width: 100%; }
+
+    .nav-inner {
+      min-height: 62px;
+      gap: 0.6rem;
+    }
+
+    .wordmark {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-main { gap: 0.45rem; }
+
+    .nav-links a {
+      font-size: 0.68rem;
+      letter-spacing: 0.045em;
+    }
+
+    .incident-item { padding: 0.95rem; }
+
+    .interlude-panel,
+    .outcome-card {
+      padding: 1rem;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.2rem, 10.4vw, 3.08rem);
+      max-width: 12.4ch;
+      line-height: 0.95;
+    }
+
+    .problem .display,
+    .end h2 {
+      font-size: clamp(1.74rem, 8.1vw, 2.42rem);
+      line-height: 1.1;
+    }
+
+    .comparison-table {
+      min-width: 640px;
+      font-size: 0.98rem;
+    }
+
+    .comparison-table thead th,
+    .comparison-table tbody th,
+    .comparison-table tbody td {
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Granular</a>
+    <div class="nav-main">
+      <ul class="nav-links">
+        <li><a href="#limits">Limits</a></li>
+        <li><a href="#framework">Compare</a></li>
+        <li><a href="#approach">Architecture</a></li>
+        <li><a href="#cta">Discuss</a></li>
+      </ul>
+      <a href="book-call.html" class="nav-doc">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div class="eyebrow-row">
+      <span class="brand-badge"><span class="brand-badge-mark">P</span>Pipedrive</span>
+      <span class="eyebrow">Entry point</span>
+    </div>
+    <h1 class="hero-h1">Native Pipedrive AI agents stay inside Pipedrive. <em>Your business does not live there.</em></h1>
+    <p class="hero-sub">A Pipedrive agent can summarize deals and suggest follow-ups.</p>
+    <p class="hero-sub">But the moment a decision depends on support load, billing state, onboarding capacity or an approval rule, the agent is operating blind.</p>
+    <div class="cta-group">
+      <a href="book-call.html" class="btn btn-primary">Book a call</a>
+      <a href="#approach" class="btn btn-ghost">See the architecture</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="interlude-panel">
+      <p class="interlude-text">The problem is not that native Pipedrive agents are bad. The problem is that your company does not operate inside Pipedrive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section problem" id="limits">
+  <div class="container">
+    <span class="eyebrow">Why they hit structural limits</span>
+    <h2 class="display">A native Pipedrive agent can only reason inside Pipedrive.</h2>
+    <ul class="incident-list" style="margin-top: 2rem;">
+      <li class="incident-item">
+        <div class="incident-meta">
+          <span class="incident-tag">Operational constraints</span>
+          <span class="incident-date">What Pipedrive may not know</span>
+        </div>
+        <h3 class="incident-title">A deal might depend on an unresolved support escalation, an unpaid invoice, onboarding capacity next month, a contract condition, or an internal approval rule.</h3>
+        <p class="incident-copy">None of these constraints necessarily live inside Pipedrive, even when they determine what should happen next.</p>
+      </li>
+      <li class="incident-item">
+        <div class="incident-meta">
+          <span class="incident-tag">Architectural consequence</span>
+          <span class="incident-date">Where fragility begins</span>
+        </div>
+        <h3 class="incident-title">Once the decision depends on multiple systems, the agent stops operating on reality and starts operating on a partial model of it.</h3>
+        <p class="incident-copy">And that is exactly where fragile automation begins.</p>
+      </li>
+    </ul>
+    <div class="diagram-grid">
+      <article class="diagram-card">
+        <div class="diagram-label-row">
+          <span class="brand-badge"><span class="brand-badge-mark">P</span>Pipedrive</span>
+          <span class="diagram-label">Native agent</span>
+        </div>
+        <h3 class="diagram-title">The agent is trapped inside one system.</h3>
+        <div class="diagram-stack">
+          <div class="diagram-node diagram-node--entry">
+            <strong>Pipedrive</strong>
+            <span>Deals, notes, activities, ownership, pipeline state</span>
+          </div>
+          <div class="diagram-arrow">↓</div>
+          <div class="diagram-node">
+            <strong>Agent answer</strong>
+            <span>Generated from Pipedrive context only</span>
+          </div>
+          <div class="surface-panel">
+            <strong>What the user gets</strong>
+            <p>A local answer shaped by Pipedrive only, with no visibility into billing, support, onboarding, or approvals.</p>
+          </div>
+        </div>
+      </article>
+      <article class="diagram-card">
+        <span class="diagram-label">Missing context</span>
+        <h3 class="diagram-title">The decision may depend on systems the agent cannot see.</h3>
+        <div class="diagram-systems">
+          <div class="diagram-chip">Support</div>
+          <div class="diagram-chip">Billing</div>
+          <div class="diagram-chip">Onboarding</div>
+          <div class="diagram-chip">Approvals</div>
+          <div class="diagram-chip">Contracts</div>
+          <div class="diagram-chip">Product usage</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="framework">
+  <div class="container">
+    <span class="eyebrow">Pipedrive-native agents vs cross-system agents</span>
+    <h2 class="display">Pipedrive-native agents stay inside one tool. Cross-system agents operate across the business.</h2>
+    <div class="interlude-panel" style="margin-top: 2rem;">
+      <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Comparison dimension</th>
+            <th>Pipedrive-native agents</th>
+            <th>Cross-system agents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Where the agent operates</th>
+            <td>Inside one SaaS tool</td>
+            <td>Across multiple business systems</td>
+          </tr>
+          <tr>
+            <th scope="row">Context available</th>
+            <td>CRM data only</td>
+            <td>Multi-system operational context</td>
+          </tr>
+          <tr>
+            <th scope="row">Actions</th>
+            <td>Suggestions and summaries</td>
+            <td>Operational actions across tools</td>
+          </tr>
+          <tr>
+            <th scope="row">Permissions</th>
+            <td>Tool-level permissions</td>
+            <td>User-level permission inheritance</td>
+          </tr>
+          <tr>
+            <th scope="row">Architecture</th>
+            <td>Product feature</td>
+            <td>Business map plus connected systems</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="approach">
+  <div class="container">
+    <span class="eyebrow">Our approach</span>
+    <h2 class="display">Pipedrive is the entry point. The architecture lives underneath it.</h2>
+    <p class="playground-sub">The architecture underneath is what turns a Pipedrive surface into an operational system.</p>
+    <div class="map-diagram">
+      <div class="map-layer-stack">
+        <div class="map-layer">
+          <div class="map-layer-head">
+            <strong>Source systems</strong>
+            <span class="map-layer-tag">Inputs</span>
+          </div>
+          <div class="map-systems-grid">
+            <div class="diagram-node diagram-node--entry">
+              <strong>Pipedrive</strong>
+              <span>Deals, accounts, activity history</span>
+            </div>
+            <div class="diagram-node">
+              <strong>Support</strong>
+              <span>Escalations, service backlog, ticket state</span>
+            </div>
+            <div class="diagram-node">
+              <strong>Billing</strong>
+              <span>Invoices, subscriptions, payment state</span>
+            </div>
+            <div class="diagram-node">
+              <strong>Onboarding</strong>
+              <span>Capacity, implementation backlog, readiness</span>
+            </div>
+            <div class="diagram-node">
+              <strong>Internal tools</strong>
+              <span>Tasks, approvals, operational workflows</span>
+            </div>
+            <div class="diagram-node">
+              <strong>Identity layer</strong>
+              <span>User roles, scope, access boundaries</span>
+            </div>
+          </div>
+        </div>
+        <div class="map-arrow">↓ unified into one map</div>
+        <div class="map-layer map-layer--core">
+          <div class="map-layer-head">
+            <strong>Business map</strong>
+            <span class="map-layer-tag">Shared model</span>
+          </div>
+          <p>A common schema that connects entities, relationships, and states across systems so the agent can reason on one operating model instead of isolated tools.</p>
+        </div>
+        <div class="map-arrow">↓ constrained by rules and permissions</div>
+        <div class="map-pill-grid">
+          <div class="map-layer">
+            <div class="map-layer-head">
+              <strong>Business logic</strong>
+              <span class="map-layer-tag">Decision layer</span>
+            </div>
+            <p>Business rules, thresholds, approval paths, exception handling, and the logic that determines what the agent is allowed to do.</p>
+          </div>
+          <div class="map-layer">
+            <div class="map-layer-head">
+              <strong>Constrained actions</strong>
+              <span class="map-layer-tag">Execution layer</span>
+            </div>
+            <p>Actions that create real effects in connected systems, but only within the boundaries defined by the logic, the map, and the user's permissions.</p>
+          </div>
+        </div>
+        <div class="map-arrow">↓ filtered by real user scope</div>
+        <div class="map-layer">
+          <div class="map-layer-head">
+            <strong>Permission layer</strong>
+            <span class="map-layer-tag">Security layer</span>
+          </div>
+          <p>Each employee only sees and triggers what their actual rights allow across connected systems. The agent can never exceed user scope.</p>
+        </div>
+        <div class="map-arrow">↓ surfaced to employees through the agent</div>
+        <div class="surface-panel">
+          <strong>What each person sees</strong>
+          <p>The same architecture presents different context and actions to different people based on real permissions.</p>
+          <div class="surface-grid">
+            <div class="surface-card">
+              <span>Sales</span>
+              <small>Deal context, blockers, allowed next actions</small>
+            </div>
+            <div class="surface-card">
+              <span>Operations</span>
+              <small>Capacity, escalations, internal execution tasks</small>
+            </div>
+            <div class="surface-card">
+              <span>Management</span>
+              <small>Cross-system visibility, approvals, exception paths</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="implementation">
+  <div class="container">
+    <span class="eyebrow">Implementation path</span>
+    <h2 class="display">How Granular turns a Pipedrive entry point into a working system.</h2>
+    <p class="playground-sub">Pipedrive is where the conversation starts. <a href="index.html" style="color:inherit;">Granular</a> builds the system underneath that lets the agent reason across the business.</p>
+    <div class="levels">
+      <article class="level">
+        <span class="level-num">01</span>
+        <div>
+          <span class="level-label">Map the business</span>
+          <h3 class="level-title">Build the map around Pipedrive.</h3>
+          <p class="level-body">We map the entities, rules, and constraints around Pipedrive: support load, billing state, onboarding capacity, and approval paths.</p>
+          <div class="level-example"><strong>Result:</strong> the agent reasons on a business map, not a single product record.</div>
+        </div>
+      </article>
+      <article class="level">
+        <span class="level-num">02</span>
+        <div>
+          <span class="level-label">Connect systems</span>
+          <h3 class="level-title">Connect the systems and mirror permissions.</h3>
+          <p class="level-body">We connect the systems that actually shape decisions: support, billing, and internal tools. Permissions are mirrored so the agent cannot act outside a user's scope.</p>
+          <div class="level-example"><strong>Result:</strong> the agent sees and acts within the same boundaries as the employee using it.</div>
+        </div>
+      </article>
+      <article class="level">
+        <span class="level-num">03</span>
+        <div>
+          <span class="level-label">Constrain actions first</span>
+          <h3 class="level-title">Start with a tightly constrained action surface.</h3>
+          <p class="level-body">The map can be broad from day one. What stays narrow at first is the agent's right to act. We start with strict rules, validation steps, and a limited set of allowed actions. As reliability is observed, that action surface expands.</p>
+          <div class="level-example"><strong>Result:</strong> autonomy grows from observed reliability, not from optimistic prompting.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="end" id="cta">
+  <div class="container">
+    <h2>If Pipedrive is where the conversation starts, <em>we can help design what comes next.</em></h2>
+    <p>If your operations depend on more than Pipedrive, the architecture has to change.</p>
+    <p>We help companies design that system.</p>
+    <div class="cta-group" style="justify-content:center;">
+      <a href="book-call.html" class="btn btn-primary">Book a call</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
